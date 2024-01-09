@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./bootstrap.min.css">
+    <title>todo</title>
+</head>
+<body>
+    <style>
+        *{
+        transition: 0.5s all !important;
+        }
+        #lists li{
+        list-style: none;
+        text-transform: capitalize;
+        width: 100% !important;
+        margin: 5px 0;
+        display: flex;
+        justify-content: space-between;
+        
+        }
+        #lists li h3{
+            font-weight: bolder;
+            color: white;
+            background-color: red;
+            border-radius: 30px;
+            width: 35px;
+            height: 35px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        </style>
+        
+
+    <center>
+        <div class="my-3" style="display: flex; align-items: center; justify-content: center; gap: 5px;">
+            <input type="text"  placeholder="Type text" style="width: 300px;" maxlength="100" class="form-control" id="text_data">
+            <button  id="btn" type="submit" class="btn btn-primary">Add</button>
+        </div>
+
+        <div style="width: 800px;" id="lists">
+        </div>
+        
+    </center>
+<script>
+let btn = document.getElementById('btn')
+let input = document.getElementById('text_data')
+
+btn.addEventListener("click",()=>{
+    if(input.value.length>0 ){
+        let li = document.createElement('li')
+        let remove = document.createElement('h3')
+        li.innerHTML=input.value
+        remove.innerHTML = '&times;'
+        li.className = 'btn btn-primary'
+
+        remove.setAttribute('onclick','this.parentElement.remove()')
+        li.append(remove)
+        document.getElementById('lists').prepend(li)
+        input.value = ''
+
+
+
+
+
+
+
+    }
+})
+
+
+</script>
+
+
+
+</body>
+</html>
